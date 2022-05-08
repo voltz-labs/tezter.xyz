@@ -1,5 +1,10 @@
 import { Page } from "../../components/Page";
+import { Title } from "../../components/Title";
 
 export const VerifySignature = () => {
-  return <Page>Verify Signature</Page>;
+  return (
+    <Page>
+      <Title>More to come</Title>
+    </Page>
+  );
 };

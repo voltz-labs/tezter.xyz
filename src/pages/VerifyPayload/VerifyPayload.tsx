@@ -116,6 +116,11 @@ export const VerifyPayload = () => {
                 <strong>Invalid</strong>
               </div>
               <strong>Warning, does not comply with necessary standards</strong>
+              <ul>
+                <li>Missing necessary prefix ("Tezos Signed Message:")</li>
+                <li>Missing recommended domain</li>
+                <li>Missing recommended timestamp</li>
+              </ul>
             </div>
           )}
         </div>
