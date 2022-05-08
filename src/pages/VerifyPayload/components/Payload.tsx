@@ -61,7 +61,11 @@ export const Payload = ({ payload, onChange }: PayloadProps) => {
         }}
       />
       <FormText className="text-muted text-break">
-        {format === "encoded" ? payload.decoded : payload.encoded}
+        {format === "encoded"
+          ? payload.decoded.slice(0, 100) +
+            (payload.decoded.length > 100 ? "..." : "")
+          : payload.encoded.slice(0, 100) +
+            (payload.encoded.length > 100 ? "..." : "")}
       </FormText>
     </FormGroup>
   );
