@@ -1,10 +1,10 @@
 import { NavBar } from "../../components/NavBar";
 
-export const VerifyPayload = () => {
+export const NotFound = () => {
   return (
     <div>
       <NavBar />
-      Verify Payload
+      Not Found
     </div>
   );
 };

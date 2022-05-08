@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="logo-4"
+   width="64.089844"
+   height="19.811529"
+   viewBox="0 0 64.089844 19.811529"
+   fill="none"
+   version="1.1"
+   sodipodi:docname="logoipsum-logo-4-2.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs31" />
+  <sodipodi:namedview
+     id="namedview29"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="6.315"
+     inkscape:cx="13.618369"
+     inkscape:cy="40.221694"
+     inkscape:window-width="1920"
+     inkscape:window-height="1007"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="logo-4" />
+  <path
+     d="m 32.04024,19.81153 c 5.4708,0 9.9057,-4.435 9.9057,-9.9058 C 41.94594,4.43496 37.51104,0 32.04024,0 c -5.4708,0 -9.9058,4.43496 -9.9058,9.90573 0,5.4708 4.435,9.9058 9.9058,9.9058 z"
+     class="ccompli1"
+     fill="#394149"
+     id="path22" />
+  <path
+     d="m 54.18414,19.81153 c 5.4708,0 9.9057,-4.435 9.9057,-9.9058 C 64.08984,4.43496 59.65494,0 54.18414,0 c -5.4708,0 -9.9058,4.43496 -9.9058,9.90573 0,5.4708 4.435,9.9058 9.9058,9.9058 z"
+     class="ccompli2"
+     fill="#394149"
+     id="path24" />
+  <path
+     d="M 19.80204,0 H 0 v 19.80203 h 19.80204 z"
+     class="ccustom"
+     fill="#394149"
+     id="path26" />
+</svg>

@@ -1,10 +1,10 @@
 import { NavBar } from "../../components/NavBar";
 
-export const VerifyPayload = () => {
+export const SignMessage = () => {
   return (
     <div>
       <NavBar />
-      Verify Payload
+      Sign Message
     </div>
   );
 };
