@@ -25,11 +25,11 @@ export const VerifyPayload = () => {
   const [result, setResult] = useState<ResultStateProps | null>(null);
 
   const regexes = {
-    prefix: /^(?<prefix>Tezos Signed Message:)(?: |$)/,
+    prefix: /^(?<prefix>Tezos Signed Message:)\s/,
     domain:
-      /^(?<prefix>Tezos Signed Message:) .*\b(?<domain>(?:[a-zA-Z0-9-]{1,63}\.)+[a-zA-Z]{2,})(?: |$)/,
+      /^(?<prefix>Tezos Signed Message:)\s.*\b(?<domain>(?:[a-zA-Z0-9-]{1,63}\.)+[a-zA-Z]{2,})\b/,
     timestamp:
-      /^(?<prefix>Tezos Signed Message:) .*\b(?<timestamp>\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z)(?: |$)/,
+      /^(?<prefix>Tezos Signed Message:)\s.*\b(?<timestamp>\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z)\b/,
   };
 
   const onSubmit = (e: FormEvent) => {
