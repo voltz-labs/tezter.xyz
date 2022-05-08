@@ -3,11 +3,11 @@ import { Button, Form } from "react-bootstrap";
 import { Page } from "../../components/Page";
 import { Title } from "../../components/Title";
 import { Payload } from "./components/Payload";
-import { BsFillCheckCircleFill, BsFillXCircleFill } from "react-icons/bs";
-
-export interface ResultStateProps {
-  valid: boolean;
-}
+import {
+  BsFillCheckCircleFill,
+  BsFillXCircleFill,
+  BsFillDashCircleFill,
+} from "react-icons/bs";
 
 export const VerifyPayload = () => {
   const [fields, setFields] = useState({
@@ -18,7 +18,11 @@ export const VerifyPayload = () => {
   });
   const [showResult, setShowResult] = useState(false);
 
-  const result = /^Tezos Signed Message: /.test(fields.payload.decoded);
+  const hasPrefix = /^Tezos Signed Message:( |$)/.test(fields.payload.decoded);
+  const isValid =
+    /^(?<prefix>Tezos Signed Message:) (?<domain>(?:[a-zA-Z0-9-]{1,63}\.)+[a-zA-Z]{2,}) (?<timestamp>\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z)( |$)/.test(
+      fields.payload.decoded
+    );
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -44,10 +48,15 @@ export const VerifyPayload = () => {
 
       {showResult && (
         <div>
-          {result ? (
+          {isValid ? (
             <div className="text-success d-flex align-items-center justify-content-start gap-3">
               <BsFillCheckCircleFill />
               <strong>Valid</strong>
+            </div>
+          ) : hasPrefix ? (
+            <div className="text-warning d-flex align-items-center justify-content-start gap-3">
+              <BsFillDashCircleFill />
+              <strong>Valid Prefix</strong>
             </div>
           ) : (
             <div className="text-danger d-flex align-items-center justify-content-start gap-3">
