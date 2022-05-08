@@ -1,6 +1,6 @@
 {
-  "name": "Tezter.xyz - Tezos Signature and Payload Verifier",
-  "short_name": "Tezter.xyz",
+  "name": "tezter.xyz - Tezos community tool",
+  "short_name": "tezter.xyz",
   "icons": [
     {
       "src": "favicon.ico",
@@ -19,7 +19,7 @@
     }
   ],
   "start_url": ".",
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "#e6e7e6",
+  "background_color": "#262826",
   "display": "standalone"
 }
