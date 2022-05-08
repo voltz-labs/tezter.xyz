@@ -9,6 +9,12 @@ import {
   BsFillDashCircleFill,
 } from "react-icons/bs";
 
+export interface ResultStateProps {
+  prefix: string | null;
+  domain: string | null;
+  timestamp: string | null;
+}
+
 export const VerifyPayload = () => {
   const [fields, setFields] = useState({
     payload: {
@@ -16,18 +22,34 @@ export const VerifyPayload = () => {
       decoded: "",
     },
   });
-  const [showResult, setShowResult] = useState(false);
+  const [result, setResult] = useState<ResultStateProps | null>(null);
 
-  const hasPrefix = /^Tezos Signed Message:( |$)/.test(fields.payload.decoded);
-  const isValid =
-    /^(?<prefix>Tezos Signed Message:) (?<domain>(?:[a-zA-Z0-9-]{1,63}\.)+[a-zA-Z]{2,}) (?<timestamp>\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z)( |$)/.test(
-      fields.payload.decoded
-    );
+  const regexes = {
+    prefix: /^(?<prefix>Tezos Signed Message:)(?: |$)/,
+    domain:
+      /^(?<prefix>Tezos Signed Message:) .*\b(?<domain>(?:[a-zA-Z0-9-]{1,63}\.)+[a-zA-Z]{2,})(?: |$)/,
+    timestamp:
+      /^(?<prefix>Tezos Signed Message:) .*\b(?<timestamp>\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z)(?: |$)/,
+  };
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    setShowResult(true);
+    const prefix =
+      fields.payload.decoded.match(regexes.prefix)?.groups?.prefix || null;
+
+    const domain =
+      fields.payload.decoded.match(regexes.domain)?.groups?.domain || null;
+
+    const timestamp =
+      fields.payload.decoded.match(regexes.timestamp)?.groups?.timestamp ||
+      null;
+
+    setResult({
+      prefix,
+      domain,
+      timestamp,
+    });
   };
 
   return (
@@ -37,7 +59,7 @@ export const VerifyPayload = () => {
         <Payload
           payload={fields.payload}
           onChange={(payload) => {
-            setShowResult(false);
+            setResult(null);
             setFields({ ...fields, payload });
           }}
         />
@@ -46,22 +68,54 @@ export const VerifyPayload = () => {
         </Button>
       </Form>
 
-      {showResult && (
+      {result && (
         <div>
-          {isValid ? (
-            <div className="text-success d-flex align-items-center justify-content-start gap-3">
-              <BsFillCheckCircleFill />
-              <strong>Valid</strong>
+          {result &&
+          result.prefix != null &&
+          result.domain != null &&
+          result.timestamp != null ? (
+            <div>
+              <div className="text-success d-flex align-items-center justify-content-start gap-3 mb-3">
+                <BsFillCheckCircleFill />
+                <strong>Valid</strong>
+              </div>
+              <strong>
+                Complies with all necessary and recommended standards
+              </strong>
+              <ul>
+                <li>Includes necessary prefix ("{result.prefix}")</li>
+                <li>Includes recommended domain ("{result.domain}")</li>
+                <li>Includes recommended timestamp ("{result.timestamp}")</li>
+              </ul>
             </div>
-          ) : hasPrefix ? (
-            <div className="text-warning d-flex align-items-center justify-content-start gap-3">
-              <BsFillDashCircleFill />
-              <strong>Valid Prefix</strong>
+          ) : result.prefix != null ? (
+            <div>
+              <div className="text-warning d-flex align-items-center justify-content-start gap-3">
+                <BsFillDashCircleFill />
+                <strong>Valid Prefix</strong>
+              </div>
+              <strong>Complies with all necessary standards</strong>
+              <ul>
+                <li>Includes necessary prefix ("{result.prefix}")</li>
+                <li>
+                  {result.domain
+                    ? `Includes recommended domain ("${result.domain}")`
+                    : "Missing recommended domain"}
+                </li>
+                <li>
+                  {result.timestamp
+                    ? `Includes recommended timestamp ("${result.timestamp}")`
+                    : "Missing recommended timestamp"}
+                </li>
+              </ul>
             </div>
           ) : (
-            <div className="text-danger d-flex align-items-center justify-content-start gap-3">
-              <BsFillXCircleFill />
-              <strong>Invalid</strong>
+            <div>
+              <div className="text-danger d-flex align-items-center justify-content-start gap-3">
+                <BsFillXCircleFill />
+                <strong>Invalid</strong>
+              </div>
+              <strong>Warning, does not comply with necessary standards</strong>
             </div>
           )}
         </div>
