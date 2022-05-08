@@ -60,7 +60,7 @@ export const Payload = ({ payload, onChange }: PayloadProps) => {
           });
         }}
       />
-      <FormText className="text-muted">
+      <FormText className="text-muted text-break">
         {format === "encoded" ? payload.decoded : payload.encoded}
       </FormText>
     </FormGroup>
