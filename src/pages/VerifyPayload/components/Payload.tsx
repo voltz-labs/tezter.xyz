@@ -1,11 +1,5 @@
 import { useState } from "react";
-import {
-  Button,
-  FormControl,
-  FormGroup,
-  FormLabel,
-  FormText,
-} from "react-bootstrap";
+import { Button, FormControl, FormGroup, FormLabel } from "react-bootstrap";
 import { convertHexToString } from "../../../functions/convertHexToString";
 import { convertStringToHex } from "../../../functions/convertStringToHex";
 import { convertHexToPayload } from "../../../functions/convertHexToPayload";
@@ -60,13 +54,6 @@ export const Payload = ({ payload, onChange }: PayloadProps) => {
           });
         }}
       />
-      <FormText className="text-muted text-break">
-        {format === "encoded"
-          ? payload.decoded.slice(0, 100) +
-            (payload.decoded.length > 100 ? "..." : "")
-          : payload.encoded.slice(0, 100) +
-            (payload.encoded.length > 100 ? "..." : "")}
-      </FormText>
     </FormGroup>
   );
 };
