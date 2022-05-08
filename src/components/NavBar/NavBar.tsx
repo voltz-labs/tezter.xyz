@@ -6,9 +6,9 @@ export const NavBar = () => {
   return (
     <header>
       <Navbar
-        bg="primary"
+        bg="secondary"
         variant="dark"
-        className="text-secondary fs-4 fw-bold shadow-lg"
+        className="text-primary fs-4 fw-bold shadow-lg"
         expand="lg"
       >
         <Container>
@@ -36,7 +36,7 @@ export const NavBar = () => {
             </Nav>
             <Nav>
               <NavItem className="my-1 my-lg-0">
-                <Button variant="secondary" className="fw-bold fs-5 mx-3">
+                <Button variant="primary" className="fw-bold fs-5 mx-3">
                   Connect Your Wallet
                 </Button>
               </NavItem>

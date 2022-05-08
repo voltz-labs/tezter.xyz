@@ -1,3 +1,3 @@
 export const Footer = () => {
-  return <footer className="bg-primary shadow py-3"></footer>;
+  return <footer className="bg-secondary shadow py-3"></footer>;
 };
