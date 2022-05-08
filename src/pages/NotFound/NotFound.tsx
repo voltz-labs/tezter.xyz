@@ -1,10 +1,5 @@
-import { NavBar } from "../../components/NavBar";
+import { Page } from "../../components/Page";
 
 export const NotFound = () => {
-  return (
-    <div>
-      <NavBar />
-      Not Found
-    </div>
-  );
+  return <Page>Not Found</Page>;
 };

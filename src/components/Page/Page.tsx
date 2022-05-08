@@ -11,7 +11,7 @@ export const Page = ({ children }: PageProps) => {
     <div className={styles["container"]}>
       <NavBar />
       <main>
-        <Container>{children}</Container>
+        <Container className="text-light">{children}</Container>
       </main>
       <Footer />
     </div>

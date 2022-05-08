@@ -1,10 +1,5 @@
-import { NavBar } from "../../components/NavBar";
+import { Page } from "../../components/Page";
 
 export const SignMessage = () => {
-  return (
-    <div>
-      <NavBar />
-      Sign Message
-    </div>
-  );
+  return <Page>Sign Message</Page>;
 };

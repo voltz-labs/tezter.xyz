@@ -1,10 +1,5 @@
-import { NavBar } from "../../components/NavBar";
+import { Page } from "../../components/Page";
 
 export const VerifySignature = () => {
-  return (
-    <div>
-      <NavBar />
-      Verify Signature
-    </div>
-  );
+  return <Page>Verify Signature</Page>;
 };

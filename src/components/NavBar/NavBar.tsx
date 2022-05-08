@@ -8,7 +8,7 @@ export const NavBar = () => {
       <Navbar
         bg="primary"
         variant="dark"
-        className="text-secondary fs-4 fw-bold"
+        className="text-secondary fs-4 fw-bold shadow-lg"
         expand="lg"
       >
         <Container>
@@ -22,20 +22,20 @@ export const NavBar = () => {
             />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbar-collapse" />
-          <Navbar.Collapse id="navbar-collapse">
+          <Navbar.Collapse id="navbar-collapse" className="my-3 my-lg-0">
             <Nav className="mx-auto">
-              <Nav.Link as={NavLink} to="/" className="mx-3">
+              <Nav.Link as={NavLink} to="/" className="mx-3 my-1 my-lg-0">
                 Payload
               </Nav.Link>
-              <Nav.Link as={NavLink} to="/verify-signature" className="mx-3">
+              <Nav.Link as={NavLink} to="/verify-signature" className="mx-3 my-1 my-lg-0">
                 Signature
               </Nav.Link>
-              <Nav.Link as={NavLink} to="/sign-message" className="mx-3">
+              <Nav.Link as={NavLink} to="/sign-message" className="mx-3 my-1 my-lg-0">
                 Sign
               </Nav.Link>
             </Nav>
             <Nav>
-              <NavItem>
+              <NavItem className="my-1 my-lg-0">
                 <Button variant="secondary" className="fw-bold fs-5 mx-3">
                   Connect Your Wallet
                 </Button>
