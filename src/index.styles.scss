@@ -2,3 +2,9 @@ $primary: #262826;
 $secondary: #e6e7e6;
 
 @import "~bootstrap";
+
+html,
+body,
+#root {
+  height: 100%;
+}
